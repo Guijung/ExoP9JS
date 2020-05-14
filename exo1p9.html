@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+ <script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
+  <script src="https://nosir.github.io/cleave.js/dist/cleave-phone.i18n.js"></script> 
+  <title>Exo1p9</title>
+  
+</head>
+<body>
+  <form>
+    <label>Nom</label>
+    <input for="name" type="text"/>  
+    <label> Prénom </label>
+    <input for="surname" type="text"/>
+    <label>Numéro de telephone</label>
+    <input class="input-phone" type="text"/>
+    <label>date de commande</label>   
+    <input class="input-orderdate"/>
+    <label>Carte de Crédit</label> 
+     <input class="input-creditcard"/>
+  </form>
+<script>
+  var cleave = new Cleave('.input-phone', {
+    phone: true,
+    phoneRegionCode: '{country}'
+  });
+var cleave = new Cleave('.input-creditcard', {
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+        // update UI ...
+    }
+});
+var cleave = new Cleave('.input-orderdate', {
+    date: true,
+    delimiter: '/',
+    datePattern: ['d', 'm', 'y']
+});
+
+
+
+</script>
+
+</body>
+</html>
